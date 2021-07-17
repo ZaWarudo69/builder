@@ -1,0 +1,37 @@
+#!/bin/bash
+git config --global  user.name "ZaWarudo69"
+git config --global  user.email "susanoo.burner@gmail.com"
+
+
+
+# Fix TimeZone
+sudo ln -snf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
+
+#tg
+tg(){
+	bot_api=$bot_api 
+	your_telegram_id=$1 
+	msg=$2 
+	curl -s "https://api.telegram.org/bot${bot_api}/sendmessage" --data "text=$msg&chat_id=${your_telegram_id}&parse_mode=html"
+}
+
+id=-1001505057197 
+tg $id "Fajita_ROM _Compile _Status: TRIGGERED!.
+Triggered _at:- $(date).
+https://cirrus-ci.com/"
+
+mkdir -p /tmp/rom 
+cd /tmp/rom
+
+repo init -q --no-repo-verify --depth=1 -u git:https://github.com/Octavi-OS/platform_manifest.git -b 11 -g default,-device,-mips,-darwin,-notdefault
+
+repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j 30 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j 8
+
+#device
+git clone --depth=1 https://github.com/Suraj-Sangwan/device_oneplus_fajita.git device/oneplus/fajita
+git clone --depth=1 https://github.com/Suraj-Sangwan/device_oneplus_sdm845-common.git device/oneplus/sdm845-common
+git clone --depth=1 https://github.com/Suraj-Sangwan/vendor_oneplus.git vendor/oneplus
+git clone --depth=1 https://github.com/Suraj-Sangwan/device_oneplus_common.git device/oneplus/common
+git clone --depth=1 https://github.com/Suraj-Sangwan/kernel_oneplus_sdm845.git kernel/oneplus/sdm845
+git clone --depth=1 https://github.com/Suraj-Sangwan/vendor_addons_oneplus_apps.git vendor/addons/oneplus/apps
+

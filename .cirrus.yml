@@ -1,0 +1,20 @@
+env: 
+    CIRRUS_CLONE_DEPTH: 1
+    CIRRUS_WORKING_DIR: "/tmp/ci" 
+
+    rclone_config:
+    bot_api:
+    
+task:
+    name: fajita 
+    timeout_in: 120m # Otherwise it will timeout at 60m automatically, 120m highest in free account
+    container:
+      dockerfile: Dockerfile # It has built-in setup environment + repo, aria2, rclone, pigz, username ci, and email ci@ci.ci 
+      cpu: 8 
+      memory: 32G 
+    #download_ccache_background_script: 
+    # - ./download_ccache 
+    sync_script: 
+      - ./sync 
+    build_uploads_script: 
+      - ./build_uploads 
