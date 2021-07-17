@@ -2,8 +2,8 @@ env:
     CIRRUS_CLONE_DEPTH: 1
     CIRRUS_WORKING_DIR: "/tmp/ci" 
 
-    rclone_config:
-    bot_api:
+    rclone_config: ENCRYPTED[b6851d64913e1a5783b1adba578004d945c7f3df8f97d530adf02eb1a74ff7930591192a06e4476b159b6ce50ad3460d]
+    bot_api: ENCRYPTED[3fc441f990fd23ef28fc85f87e95575dd7af83d78f6c591e3b415e1424c0153081f4c9bb6a8675fe3e0fcb38c72a8aba]
     
 task:
     name: fajita 
