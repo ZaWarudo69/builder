@@ -24,7 +24,7 @@ id=-1001505057197 # Your telegram id
 tg $id "Fajita ROM Compile Status: STARTED!.
 Started at:- $(date)."
 
-make bacon -j8 &
+brunch -j8 &
 sleep 95m
 kill %1
 ccache -s
