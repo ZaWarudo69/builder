@@ -41,12 +41,12 @@ echo "$rclone_config" > ~/.config/rclone/rclone.conf
 #	# 14 days, 10 GB limit
 #}
 
-time rclone copy /tmp/rom/out/target/product/fajita/OctaviOS*zip fajita:OctaviOS -P
-tg $id "Fajita Compile Status: \`FINISHED!\`
-Finished at:- \`$(date)\`.
-Download Link:https://hacks_on.susanoo-burner.workers.dev/OctaviOS/
-CCache Stats:-
-\`$(ccache -s | sed -n -e "6,9 p" -e "9 q")\`"
+#time rclone copy /tmp/rom/out/target/product/fajita/OctaviOS*zip fajita:OctaviOS -P
+#tg $id "Fajita Compile Status: \`FINISHED!\`
+#Finished at:- \`$(date)\`.
+#Download Link:https://hacks_on.susanoo-burner.workers.dev/OctaviOS/
+#CCache Stats:-
+#\`$(ccache -s | sed -n -e "6,9 p" -e "9 q")\`"
 
 ccache -s
 
